@@ -1,0 +1,29 @@
+.agent-work/
+
+# App/build outputs
+node_modules/
+dist/
+build/
+coverage/
+.nyc_output/
+*.log
+*.tsbuildinfo
+__pycache__/
+*.py[cod]
+
+# Local/generated data
+data/raw/
+data/downloads/
+data/cache/
+data/processed/
+data/generated/
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+*.db
+*.db-shm
+*.db-wal
+
+# OS/editor
+.DS_Store
+Thumbs.db

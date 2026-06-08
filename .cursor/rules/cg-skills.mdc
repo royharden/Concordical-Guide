@@ -1,0 +1,6 @@
+---
+description: Concordical Guide agent instructions
+alwaysApply: true
+---
+
+Read and follow `AGENTS.md` at the repository root. Do not duplicate project rules here; update `AGENTS.md` and canonical skills first, then mirror.

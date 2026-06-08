@@ -1,0 +1,16 @@
+[
+  {
+    "description": "Synthetic Hebrew fixture definition for importer validation.",
+    "lemma": "fixture-hebrew",
+    "number": "H1",
+    "pronounce": "fixture-h",
+    "xlit": "fixtureh"
+  },
+  {
+    "description": "Synthetic Greek fixture definition for lookup validation.",
+    "lemma": "fixture-greek",
+    "number": "G25",
+    "pronounce": "fixture-g",
+    "xlit": "fixtureg"
+  }
+]

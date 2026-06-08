@@ -1,0 +1,19 @@
+{
+  "last_modified": "fixture",
+  "lds_slug": "fixture-sections",
+  "sections": [
+    {
+      "reference": "Fixture D&C 1",
+      "section": 1,
+      "verses": [
+        {
+          "reference": "Fixture D&C 1:1",
+          "text": "Gamma section text proves sections import as chapters.",
+          "verse": 1
+        }
+      ]
+    }
+  ],
+  "title": "Fixture Sections",
+  "version": "fixture"
+}

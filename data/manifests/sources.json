@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "sources": [
+    {
+      "id": "bcbooks-scriptures-json",
+      "title": "Scriptures in JSON - Latter-day Saint Standard Works",
+      "kind": "scripture-json",
+      "language": "eng",
+      "license_id": "public-domain-bcbooks-scriptures-json",
+      "provenance_url": "https://bencrowder.net/scriptures-in-json/",
+      "retrieved_at": "2026-06-07",
+      "storage": {
+        "policy": "gitignored-raw-download",
+        "path": "data/downloads/lds-scriptures-json/"
+      },
+      "download_urls": [
+        "https://raw.githubusercontent.com/bcbooks/scriptures-json/master/README.md",
+        "https://raw.githubusercontent.com/bcbooks/scriptures-json/master/book-of-mormon.json",
+        "https://raw.githubusercontent.com/bcbooks/scriptures-json/master/doctrine-and-covenants.json",
+        "https://raw.githubusercontent.com/bcbooks/scriptures-json/master/pearl-of-great-price.json",
+        "https://raw.githubusercontent.com/bcbooks/scriptures-json/master/old-testament.json",
+        "https://raw.githubusercontent.com/bcbooks/scriptures-json/master/new-testament.json"
+      ],
+      "notes": "Initial LDS scripture source. Project page says files omit rights-restricted study material. Confirm bundling policy before shipping user-facing app data."
+    },
+    {
+      "id": "mormon-documentation-project-strongs",
+      "title": "Strong's Hebrew/Greek Lexicon in JSON",
+      "kind": "strongs-json",
+      "language": "eng",
+      "license_id": "unlicense-mormon-documentation-project-strongs",
+      "provenance_url": "https://github.com/mormon-documentation-project/strongs",
+      "retrieved_at": "2026-06-07",
+      "storage": {
+        "policy": "gitignored-raw-download",
+        "path": "data/downloads/strongs/"
+      },
+      "download_urls": [
+        "https://raw.githubusercontent.com/mormon-documentation-project/strongs/master/README.md",
+        "https://raw.githubusercontent.com/mormon-documentation-project/strongs/master/LICENSE",
+        "https://raw.githubusercontent.com/mormon-documentation-project/strongs/master/strongs.json"
+      ],
+      "notes": "Normalized Strong's JSON for the first ingest pass. Preserve upstream attribution to OpenScriptures and the original public-domain Strong's work."
+    }
+  ]
+}

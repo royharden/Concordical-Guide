@@ -1,0 +1,31 @@
+{
+  "books": [
+    {
+      "book": "Fixture Book",
+      "chapters": [
+        {
+          "chapter": 1,
+          "reference": "Fixture Book 1",
+          "verses": [
+            {
+              "reference": "Fixture Book 1:1",
+              "text": "Alpha study text for fixture search.",
+              "verse": 1
+            },
+            {
+              "reference": "Fixture Book 1:2",
+              "text": "Beta covenant text with punctuation, case, and search.",
+              "verse": 2
+            }
+          ]
+        }
+      ],
+      "full_title": "The Fixture Book",
+      "lds_slug": "fixture-book"
+    }
+  ],
+  "last_modified": "fixture",
+  "lds_slug": "fixture-volume",
+  "title": "Fixture Volume",
+  "version": "fixture"
+}
