@@ -1,0 +1,16 @@
+{
+  "id": "ebible-webp-vpl-2026-10-20",
+  "title": "World English Bible Protestant Edition, verse-per-line XML",
+  "provider": "eBible.org",
+  "source_url": "https://ebible.org/Scriptures/engwebp_vpl.zip",
+  "publisher_details": "https://ebible.org/find/details.php?id=engwebp",
+  "license_url": "https://ebible.org/engwebp/copyright.htm",
+  "license": "Public domain; World English Bible is a trademark for unchanged text",
+  "publisher_release": "2020 stable text edition; source listing last updated 2026-10-20",
+  "retrieved_at": "2026-10-29",
+  "archive_sha256": "d681320dbaec25ba2b6ad7151cd71737c10efc24a6545ffe1aa50b5ef0ca4b8d",
+  "archive_member": "engwebp_vpl.xml",
+  "storage": "data/downloads/webp/engwebp_vpl.zip",
+  "derived_store": "data/generated/webp/engwebp.sqlite",
+  "notes": "66-book Protestant edition; source strips notes, introductions and formatting. This source is independently pinned from the private LDS-source package. Coordinate matching does not establish textual or versification equivalence."
+}

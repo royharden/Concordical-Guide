@@ -14,6 +14,13 @@
       "status": "permissive",
       "source_url": "https://github.com/mormon-documentation-project/strongs",
       "usage_notes": "Repository declares Unlicense and derives from OpenScriptures Strong's data. Strong's original 1890 work is public domain, but importer receipts should preserve upstream provenance."
+    },
+    {
+      "id": "oshb-cc-by-4",
+      "name": "Open Scriptures Hebrew Bible CC BY 4.0 annotations",
+      "status": "permissive",
+      "source_url": "https://github.com/openscriptures/morphhb/blob/0bd81146d98cbfa6af8b6a4df11a658a6b8737c6/LICENSE.md",
+      "usage_notes": "WLC base is public domain according to project; annotation license requires attribution, license notice, and indication of changes."
     }
   ]
 }

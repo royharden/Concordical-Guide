@@ -1,0 +1,16 @@
+{
+  "id": "oshb-v2-verified-subset",
+  "title": "Open Scriptures Hebrew Bible 2.0 — verified passage subset",
+  "revision": "0bd81146d98cbfa6af8b6a4df11a658a6b8737c6",
+  "source": "https://github.com/openscriptures/morphhb/tree/0bd81146d98cbfa6af8b6a4df11a658a6b8737c6/wlc",
+  "license_url": "https://github.com/openscriptures/morphhb/blob/0bd81146d98cbfa6af8b6a4df11a658a6b8737c6/LICENSE.md",
+  "license": "WLC base public domain; OSHB annotations CC BY 4.0",
+  "attribution": "Original work of the Open Scriptures Hebrew Bible available at https://github.com/openscriptures/morphhb",
+  "files": {
+    "Gen.xml": "bb57b281324d3471758cde40a0fc250acfab2cbcec78c309c51a5b9d79b71e6f",
+    "Ps.xml": "9a3b158c15349f71d54a06d91f71f5dac9908dbe5d69b915881b2a2906791d3c",
+    "LICENSE.md": "9bf4a2890c25372e4c1dc750d550bfb4eacfbfcb63c53123b0628159370d1878",
+    "VerseMap.xml": "8325df1aa59d0340ef2724ac3a35f75dbe7fe511d53c789e26d8438487f5cf35"
+  },
+  "notes": "Genesis 1–2 follow the pinned OSHB exception-map identity convention and are checked against the KJV catalog. Psalm 3:1 uses the source KJV note. No WEB or English-token alignment is inferred."
+}

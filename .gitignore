@@ -27,3 +27,14 @@ data/generated/
 # OS/editor
 .DS_Store
 Thumbs.db
+# AgentNamer callsign registry (per-project agent log)
+.agent-registry/
+
+# Private agent thinking lanes
+.thinking/
+
+# Private operational exports and local credentials
+.chatexports/
+.env
+.env.*
+!.env.example

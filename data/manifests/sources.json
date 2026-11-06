@@ -41,6 +41,30 @@
         "https://raw.githubusercontent.com/mormon-documentation-project/strongs/master/strongs.json"
       ],
       "notes": "Normalized Strong's JSON for the first ingest pass. Preserve upstream attribution to OpenScriptures and the original public-domain Strong's work."
+    },
+    {
+      "id": "oshb-v2-verified-subset",
+      "title": "Open Scriptures Hebrew Bible 2.0 verified KJV subset",
+      "kind": "oshb-osis-xml",
+      "language": "heb",
+      "license_id": "oshb-cc-by-4",
+      "provenance_url": "https://github.com/openscriptures/morphhb/tree/0bd81146d98cbfa6af8b6a4df11a658a6b8737c6",
+      "retrieved_at": "2026-10-29",
+      "storage": {
+        "policy": "gitignored-raw-download",
+        "path": "data/downloads/oshb-v2/"
+      },
+      "download_urls": [
+        "https://raw.githubusercontent.com/openscriptures/morphhb/0bd81146d98cbfa6af8b6a4df11a658a6b8737c6/wlc/Gen.xml",
+        "https://raw.githubusercontent.com/openscriptures/morphhb/0bd81146d98cbfa6af8b6a4df11a658a6b8737c6/wlc/Ps.xml",
+        "https://raw.githubusercontent.com/openscriptures/morphhb/0bd81146d98cbfa6af8b6a4df11a658a6b8737c6/LICENSE.md",
+        "https://raw.githubusercontent.com/openscriptures/morphhb/0bd81146d98cbfa6af8b6a4df11a658a6b8737c6/wlc/VerseMap.xml",
+        "https://raw.githubusercontent.com/openscriptures/morphhb/0bd81146d98cbfa6af8b6a4df11a658a6b8737c6/wlc/Exod.xml",
+        "https://raw.githubusercontent.com/openscriptures/morphhb/0bd81146d98cbfa6af8b6a4df11a658a6b8737c6/wlc/Lev.xml",
+        "https://raw.githubusercontent.com/openscriptures/morphhb/0bd81146d98cbfa6af8b6a4df11a658a6b8737c6/wlc/Num.xml",
+        "https://raw.githubusercontent.com/openscriptures/morphhb/0bd81146d98cbfa6af8b6a4df11a658a6b8737c6/wlc/Deut.xml"
+      ],
+      "notes": "Exact file hashes in oshb-subset.json. Only reviewed mappings are exposed; KJV and OSHB versification differ. No English-token alignment is asserted."
     }
   ]
 }

@@ -1,0 +1,47 @@
+services:
+  reader:
+    image: cg-reader-psalm13-spans-test-image
+    build: .
+    init: true
+    environment:
+      PORT: "8000"
+      CG_DATA_DIR: /data/generated
+      CG_OSHB_DB: /data/generated/word-study/oshb-genesis1-2.sqlite
+      CG_ALLOWED_HOSTS: "127.0.0.1:${CG_DOCKER_PORT:?Set the registered port},localhost:${CG_DOCKER_PORT:?Set the registered port}"
+      CG_ALLOWED_ORIGINS: "http://127.0.0.1:${CG_DOCKER_PORT:?Set the registered port},http://localhost:${CG_DOCKER_PORT:?Set the registered port}"
+    ports:
+      - "127.0.0.1:${CG_DOCKER_PORT:?Set the registered port}:8000"
+    volumes:
+      - type: bind
+        source: "${CG_SOURCE_DIR:-./data/generated}"
+        target: /data/generated
+        read_only: true
+        bind:
+          create_host_path: false
+      # The destination is the server's legacy filename; the reviewed source
+      # contains Genesis and reviewed Psalms 1-150 including Psalm 13 spans with six exclusions.
+      # For rollback use the reviewed corrected Psalms 1-150 store.
+      - type: bind
+        source: "${CG_SOURCE_DIR:-./data/generated}/word-study/oshb-genesis-psalms1-150-ps13-spans.sqlite"
+        target: /data/generated/word-study/oshb-genesis1-2.sqlite
+        read_only: true
+        bind:
+          create_host_path: false
+      - type: volume
+        source: userdata
+        target: /var/lib/cg/userdata
+    labels:
+      agentports.project: cg
+      agentports.instance: "${CG_INSTANCE:?Set the registered instance}"
+      agentports.owner: "${CG_PORTS_OWNER:?Set the callsign}"
+    networks: [reader]
+networks:
+  reader:
+    external: true
+    name: cg-net-20261030
+volumes:
+  userdata:
+    labels:
+      agentports.project: cg
+      agentports.instance: "${CG_INSTANCE:?Set the registered instance}"
+      agentports.owner: "${CG_PORTS_OWNER:?Set the callsign}"

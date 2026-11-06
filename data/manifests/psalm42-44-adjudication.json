@@ -1,0 +1,16 @@
+{
+  "id": "psalm-42-44-local-reference-adjudication-v1",
+  "status": "isolated candidate only",
+  "source_revision": "0bd81146d98cbfa6af8b6a4df11a658a6b8737c6",
+  "ps_xml_sha256": "9a3b158c15349f71d54a06d91f71f5dac9908dbe5d69b915881b2a2906791d3c",
+  "verse_map_sha256": "8325df1aa59d0340ef2724ac3a35f75dbe7fe511d53c789e26d8438487f5cf35",
+  "local_kjv_catalog_sha256": "1f1cc5af0f828d52ce1149603a9d953dadbfabc86da6f6d9d498ec0fa7e72712",
+  "local_kjv_source_sha256": "16a1fd220dff55c942f7fe188f482994171f2dd7502c1869cf992433e8e991ea",
+  "cases": [
+    {"target": "Ps.42.1", "source": "Ps.42.2", "source_note": "KJV:Ps.42.1", "competing_source_note": "Ps.44.2:KJV:Ps.42.1"},
+    {"target": "Ps.44.1", "source": "Ps.44.2", "source_note": "KJV:Ps.42.1", "competing_source_note": "Ps.42.2:KJV:Ps.42.1"}
+  ],
+  "decision": "Use the two explicit full VerseMap edges for this local KJV catalog; preserve both pinned XML notes unchanged. Psalm 44.2's note conflicts with the map and the distinct source and KJV verse bodies. This is a local reference adjudication, not English-word alignment or an edit of upstream source.",
+  "corroboration": "The pinned map, neighboring notes and distinct KJV and Hebrew verse content agree. The official upstream master Ps.xml observed 2026-11-01 labels Ps.44.2 as KJV:Ps.44.1; the mutable branch is corroboration only, not a reproducibility pin or an asserted formal erratum.",
+  "upstream_current_url": "https://raw.githubusercontent.com/openscriptures/morphhb/master/wlc/Ps.xml"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "numbers26-1-local-reference-adjudication-v1",
+  "status": "isolated candidate only",
+  "source_revision": "0bd81146d98cbfa6af8b6a4df11a658a6b8737c6",
+  "numbers_xml_sha256": "d762aac5ec4527b6cb86e959c76835d8c3b5bebc807b5844b70967eef93a4c21",
+  "verse_map_sha256": "8325df1aa59d0340ef2724ac3a35f75dbe7fe511d53c789e26d8438487f5cf35",
+  "local_kjv_catalog_sha256": "1f1cc5af0f828d52ce1149603a9d953dadbfabc86da6f6d9d498ec0fa7e72712",
+  "local_kjv_source_sha256": "16a1fd220dff55c942f7fe188f482994171f2dd7502c1869cf992433e8e991ea",
+  "target": "Num.26.1",
+  "source_parts": ["Num.25.19", "Num.26.1"],
+  "source_map_edge": {"wlc": "Num.25.19", "kjv": "Num.26.1", "type": "full"},
+  "decision": "The pinned map lists only the first source record. Ordered OSHB Num.25.19 and Num.26.1 together correspond to the receipt-verified local KJV verse body. Preserve both source records and IDs, display the two parts separately, and label this a local reference adjudication. This is not English-word alignment and does not alter upstream source or map.",
+  "evidence": "Pinned OSHB Num.25.19 has the matching KJV note and the opening phrase; adjacent Num.26.1 supplies the remainder. The local KJV verse body and independent source-linguistic review corroborate the two-source reading. No upstream author confirmation is asserted."
+}

@@ -34,6 +34,22 @@ if ($LASTEXITCODE -ne 0) {
     exit $LASTEXITCODE
 }
 
+Write-Host "== CG reader server tests =="
+if ($pythonCommand -eq "py") {
+    & py -3 (Join-Path $PSScriptRoot "test_reader_server.py")
+} else {
+    & $pythonCommand (Join-Path $PSScriptRoot "test_reader_server.py")
+}
+if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+if (Test-Path "app/package.json") {
+    Write-Host "== CG browser typecheck and tests =="
+    & npm --prefix app run typecheck
+    if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+    & npm --prefix app test
+    if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+}
+
 if (Test-Path "package.json") {
     $package = Get-Content "package.json" -Raw | ConvertFrom-Json
     $scripts = @()
@@ -61,7 +77,7 @@ if (Test-Path "package.json") {
         }
     }
 } else {
-    Write-Host "No package.json yet; app lint/type/test checks skipped."
+    Write-Host "No root package.json; root npm checks skipped."
 }
 
 Write-Host "CG gauntlet passed."

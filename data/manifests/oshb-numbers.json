@@ -1,0 +1,12 @@
+{
+  "id": "oshb-v2-numbers-pinned",
+  "title": "Open Scriptures Hebrew Bible 2.0 Numbers",
+  "revision": "0bd81146d98cbfa6af8b6a4df11a658a6b8737c6",
+  "source_url": "https://raw.githubusercontent.com/openscriptures/morphhb/0bd81146d98cbfa6af8b6a4df11a658a6b8737c6/wlc/Num.xml",
+  "path": "data/downloads/oshb-v2/Num.xml",
+  "sha256": "d762aac5ec4527b6cb86e959c76835d8c3b5bebc807b5844b70967eef93a4c21",
+  "license": "WLC base public domain; OSHB annotations CC BY 4.0",
+  "license_sha256": "9bf4a2890c25372e4c1dc750d550bfb4eacfbfcb63c53123b0628159370d1878",
+  "attribution": "Original work of the Open Scriptures Hebrew Bible available at https://github.com/openscriptures/morphhb",
+  "scope": "Pinned source only; no Numbers mapping is promoted by this manifest."
+}

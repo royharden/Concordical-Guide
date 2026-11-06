@@ -1,0 +1,12 @@
+{
+  "id": "oshb-v2-exodus-pinned",
+  "title": "Open Scriptures Hebrew Bible 2.0 Exodus",
+  "revision": "0bd81146d98cbfa6af8b6a4df11a658a6b8737c6",
+  "source_url": "https://raw.githubusercontent.com/openscriptures/morphhb/0bd81146d98cbfa6af8b6a4df11a658a6b8737c6/wlc/Exod.xml",
+  "path": "data/downloads/oshb-v2/Exod.xml",
+  "sha256": "0e475d352d0cb0d6d29ea4cdba270a3afbf561b520ba8b5ba0e6348d32d49572",
+  "license": "WLC base public domain; OSHB annotations CC BY 4.0",
+  "license_sha256": "9bf4a2890c25372e4c1dc750d550bfb4eacfbfcb63c53123b0628159370d1878",
+  "attribution": "Original work of the Open Scriptures Hebrew Bible available at https://github.com/openscriptures/morphhb",
+  "scope": "Pinned source only; no Exodus mapping is promoted by this manifest."
+}

@@ -1,0 +1,62 @@
+param([Parameter(Mandatory=$true)][string]$Url, [switch]$Numbers26JoinCandidate)
+$ErrorActionPreference = 'Stop'
+$session = 'cg-reader-test-' + [guid]::NewGuid().ToString('N')
+Write-Host "Isolated browser session: $session"
+$shim = (Get-Command agent-browser.ps1 -ErrorAction Stop).Source
+$agentCli = Join-Path (Split-Path -Parent $shim) 'node_modules/agent-browser/bin/agent-browser-win32-x64.exe'
+if (-not (Test-Path -LiteralPath $agentCli)) { throw 'agent-browser executable is unavailable.' }
+function Run-Browser([string[]]$BrowserArgs) {
+  Write-Host "Browser check: $($BrowserArgs -join ' ')"
+  $suffix = [guid]::NewGuid().ToString('N')
+  $stdoutFile = Join-Path $env:TEMP ($session + '-' + $suffix + '.out')
+  $stderrFile = Join-Path $env:TEMP ($session + '-' + $suffix + '.err')
+  $argv = @('--session',$session) + $BrowserArgs
+  $quoted = $argv | ForEach-Object { '"' + $_.Replace('"','\"') + '"' }
+  $process = Start-Process -FilePath $agentCli -ArgumentList ($quoted -join ' ') -WindowStyle Hidden -RedirectStandardOutput $stdoutFile -RedirectStandardError $stderrFile -PassThru
+  if (-not $process.WaitForExit(30000)) { throw "Browser command timed out: $($BrowserArgs -join ' ')" }
+  # The launched daemon can retain the first command's inherited file handles.
+  $out = if ($BrowserArgs[0] -eq 'open') { '' } else { [IO.File]::ReadAllText($stdoutFile) + [IO.File]::ReadAllText($stderrFile) }
+  if ($process.ExitCode -ne 0) { throw "Browser command failed: $($BrowserArgs -join ' ')`n$out" }
+  return $out
+}
+function Require-Text([string]$Actual,[string]$Expected) {
+  if (-not $Actual.Contains($Expected)) { throw "Expected '$Expected', observed '$Actual'" }
+}
+function Check-Heading([int]$Chapter,[int]$BodyCount,[int]$HeadingCount) {
+  Run-Browser @('select','.controls label:nth-child(1) select',"$Chapter") | Out-Null
+  Run-Browser @('select','.controls label:nth-child(2) select','1') | Out-Null
+  Run-Browser @('wait','--text',"OSHB Ps.$Chapter.3") | Out-Null
+  Run-Browser @('wait','--text','These are verse-body words') | Out-Null
+  if ((Run-Browser @('get','count','.hebrew-verse > div[dir=rtl] .hebrew-token')).Trim() -ne "$BodyCount") { throw "Wrong verse-body token count for Psalm $Chapter" }
+  Run-Browser @('eval','document.querySelector(".hebrew-verse summary").scrollIntoView({block:"center"});null') | Out-Null
+  Run-Browser @('click','.hebrew-verse details summary') | Out-Null
+  if ((Run-Browser @('eval','document.querySelector(".hebrew-verse details").open')).Trim() -ne 'true') { throw 'Pointer did not open heading disclosure' }
+  Run-Browser @('focus','.hebrew-verse details summary') | Out-Null
+  Run-Browser @('press','Enter') | Out-Null
+  if ((Run-Browser @('eval','document.querySelector(".hebrew-verse details").open')).Trim() -ne 'false') { throw 'Keyboard did not close heading disclosure' }
+  Run-Browser @('press','Enter') | Out-Null
+  Run-Browser @('wait','--text',"OSHB Ps.$Chapter.2") | Out-Null
+  Run-Browser @('wait','--text','Source superscription excerpt (not verse text)') | Out-Null
+  if ((Run-Browser @('get','count','.hebrew-verse details .hebrew-token')).Trim() -ne "$HeadingCount") { throw "Wrong heading token count for Psalm $Chapter" }
+}
+try {
+ Run-Browser @('open',$Url) | Out-Null
+ Run-Browser @('select','aside > label select','bcbooks:deut') | Out-Null
+ Run-Browser @('find','role','button','click','--name','Open word study') | Out-Null
+ foreach ($pair in @(@('31','1'),@('32','13'),@('33','2'),@('33','9'),@('34','12'))) {
+  Run-Browser @('select','.controls label:nth-child(1) select',$pair[0]) | Out-Null
+  Run-Browser @('select','.controls label:nth-child(2) select',$pair[1]) | Out-Null
+  Run-Browser @('wait','--text',"OSHB Deut.$($pair[0]).$($pair[1])") | Out-Null
+ }
+ Run-Browser @('find','role','button','click','--name','Switch main to WEB') | Out-Null
+ Run-Browser @('wait','--text','Original-language source words are unavailable for this passage and edition.') | Out-Null
+ Run-Browser @('find','role','button','click','--name','Switch main to KJV') | Out-Null
+ Run-Browser @('select','.controls label:nth-child(1) select','22') | Out-Null
+ Run-Browser @('wait','--text','Original-language source words are unavailable for this passage and edition.') | Out-Null
+ Run-Browser @('select','.controls label:nth-child(1) select','12') | Out-Null
+ Run-Browser @('select','.controls label:nth-child(2) select','32') | Out-Null
+ Run-Browser @('wait','--text','OSHB Deut.13.1') | Out-Null
+ Write-Host 'Deuteronomy 31–34 browser regression passed.'
+} finally {
+ try { Run-Browser @('close') | Out-Null } catch { Write-Warning 'Could not close isolated browser session.' }
+}

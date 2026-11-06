@@ -1,0 +1,12 @@
+**
+!app/
+!app/package.json
+!app/package-lock.json
+!app/index.html
+!app/tsconfig.json
+!app/src/
+!app/src/**
+!scripts/
+!scripts/serve_reader.py
+!Dockerfile
+!.dockerignore
